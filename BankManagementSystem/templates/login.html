@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="icon" href="https://w7.pngwing.com/pngs/636/81/png-transparent-hdfc-thumbnail-bank-logos.png">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>KVU Bank - Login</title>
+</head>
+<body>
+    <h1 style="text-align:center;">Welcome to KVU Bank</h1>
+    <div id="container">
+        <div id="text-section">
+            <p>We are delighted to have you with us.</p>
+            <p> Please log in to access your account and enjoy our comprehensive banking services.</p>
+        </div>
+        <div id="form-section">
+            <form method="POST">
+                {% csrf_token %}
+                <div>
+                    <input type="text" name="username" id="username" placeholder="Your Username" required>
+                </div><br>
+                <div>
+                    <input type="password" name="password" id="password" placeholder="Your Password" required>
+                </div><br><br>
+                <div>
+                    <input type="submit" name="Login" id="Login" value="Login">
+                </div><br><br>
+                <div>
+                    <input type="reset" name="Clear" value="Clear">
+                </div>
+                <div><p>Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p></div>
+                {% if error_message %}
+                <p style="color:red;">{{ error_message }}</p>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</body>
+</html>
