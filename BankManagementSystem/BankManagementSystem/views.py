@@ -28,7 +28,7 @@ def user_login(request):
             return redirect('home')  # Redirect to the home page or any other page after login
         else:
             error_message = "Invalid credentials. Please try again."
-            return render(request, "login.html", {"error_message": error_message})
+            return render(request, "index.html", {"error_message": error_message})
     return render(request, "login.html")
 
 
